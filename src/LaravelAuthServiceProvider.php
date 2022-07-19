@@ -2,9 +2,9 @@
 
 namespace Mdhesari\LaravelAuth;
 
+use LaravelAuth\LaravelAuth\Commands\LaravelAuthCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use LaravelAuth\LaravelAuth\Commands\LaravelAuthCommand;
 
 class LaravelAuthServiceProvider extends PackageServiceProvider
 {
