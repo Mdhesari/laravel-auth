@@ -4,8 +4,8 @@ namespace Mdhesari\LaravelAuth\Tests;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
-use Orchestra\Testbench\TestCase as Orchestra;
 use Mdhesari\LaravelAuth\LaravelAuthServiceProvider;
+use Orchestra\Testbench\TestCase as Orchestra;
 
 class TestCase extends Orchestra
 {
@@ -16,7 +16,7 @@ class TestCase extends Orchestra
         parent::setUp();
 
         Factory::guessFactoryNamesUsing(
-            fn(string $modelName) => 'LaravelAuth\\LaravelAuth\\Database\\Factories\\'.class_basename($modelName).'Factory'
+            fn (string $modelName) => 'LaravelAuth\\LaravelAuth\\Database\\Factories\\'.class_basename($modelName).'Factory'
         );
     }
 

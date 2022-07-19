@@ -17,7 +17,7 @@ class GenerateUserReferralCode
 
     private function generateReferralCode(): string
     {
-        $code = 'foodiegram_' . substr($code = uniqid(), strlen($code) - 6, strlen($code));
+        $code = 'foodiegram_'.substr($code = uniqid(), strlen($code) - 6, strlen($code));
 
         return User::whereReferralCode($code)->exists() ? $this->generateReferralCode() : $code;
     }

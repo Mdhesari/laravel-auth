@@ -2,12 +2,10 @@
 
 namespace Mdhesari\LaravelAuth\Http\Controllers;
 
-use Illuminate\Auth\AuthenticationException;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
-use Jenssegers\Agent\Agent;
 use Laravel\Socialite\Facades\Socialite;
 use Mdhesari\LaravelAuth\Actions\CreateUser;
 use Mdhesari\LaravelAuth\Actions\SetupToken;
@@ -19,9 +17,10 @@ class TokenController extends Controller
     /**
      * Get login token for user
      *
-     * @param LoginRequest $request
-     * @param SetupToken $setupToken
+     * @param  LoginRequest  $request
+     * @param  SetupToken  $setupToken
      * @return JsonResponse
+     *
      * @throws ValidationException
      * @group User
      */
@@ -29,7 +28,7 @@ class TokenController extends Controller
     {
         $user = User::whereEmail($request->email)->firstOrFail();
 
-        if ( ! Hash::check($request->password, $user->password) ) {
+        if (! Hash::check($request->password, $user->password)) {
             throw ValidationException::withMessages([
                 'password' => __('auth.failed'),
             ]);
@@ -43,7 +42,7 @@ class TokenController extends Controller
     /**
      * Delete all access tokens
      *
-     * @param Request $request
+     * @param  Request  $request
      * @return JsonResponse
      * @group User
      */
@@ -57,7 +56,7 @@ class TokenController extends Controller
     /**
      * Delete current access token
      *
-     * @param Request $request
+     * @param  Request  $request
      * @return JsonResponse
      * @group User
      */
@@ -71,14 +70,14 @@ class TokenController extends Controller
     /**
      * Delete specific access token
      *
-     * @param Request $request
-     * @param string $name
+     * @param  Request  $request
+     * @param  string  $name
      * @return JsonResponse
      * @group User
      */
     public function destroySpecificAccessToken(Request $request, string $name): JsonResponse
     {
-        if ( ! $request->user()->tokens()->where('name', $name)->delete() ) {
+        if (! $request->user()->tokens()->where('name', $name)->delete()) {
             return api()->notFound(__('Access token name is invalid.'));
         }
 
@@ -108,14 +107,14 @@ class TokenController extends Controller
         $first_name = trim($first_name);
 
         $data = [
-            'email'             => $user->email,
-            'first_name'        => $first_name,
-            'last_name'         => $last_name[count($last_name) - 1],
-            'google_id'         => $user->id,
-            'meta'              => [
-                'google_avatar'          => $user->avatar,
+            'email' => $user->email,
+            'first_name' => $first_name,
+            'last_name' => $last_name[count($last_name) - 1],
+            'google_id' => $user->id,
+            'meta' => [
+                'google_avatar' => $user->avatar,
                 'google_avatar_original' => $user->avatar_original,
-                'google_token'           => $user->token,
+                'google_token' => $user->token,
                 'google_token_expire_in' => $user->expiresIn,
             ],
             'email_verified_at' => now(),

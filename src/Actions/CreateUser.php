@@ -9,8 +9,7 @@ class CreateUser
 {
     public function __construct(
         public GenerateUserReferralCode $generateUserReferralCode
-    )
-    {
+    ) {
         //
     }
 
@@ -21,12 +20,12 @@ class CreateUser
         ], $this->getData($data)
         );
 
-        if ( $user->trashed() ) {
+        if ($user->trashed()) {
             $user->update($this->getData($data));
             $user->restore();
         }
 
-        if ( $this->hasReferralCode() ) {
+        if ($this->hasReferralCode()) {
             ($this->generateUserReferralCode)($user);
         }
 
