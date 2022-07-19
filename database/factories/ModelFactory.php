@@ -1,6 +1,6 @@
 <?php
 
-namespace LaravelAuth\LaravelAuth\Database\Factories;
+namespace Mdhesari\LaravelAuth\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 

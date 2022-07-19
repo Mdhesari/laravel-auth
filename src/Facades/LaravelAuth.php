@@ -1,11 +1,11 @@
 <?php
 
-namespace LaravelAuth\LaravelAuth\Facades;
+namespace Mdhesari\LaravelAuth\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @see \LaravelAuth\LaravelAuth\LaravelAuth
+ * @see \Mdhesari\LaravelAuth\LaravelAuth
  */
 class LaravelAuth extends Facade
 {

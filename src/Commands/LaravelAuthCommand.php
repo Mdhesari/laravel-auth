@@ -1,6 +1,6 @@
 <?php
 
-namespace LaravelAuth\LaravelAuth\Commands;
+namespace Mdhesari\LaravelAuth\Commands;
 
 use Illuminate\Console\Command;
 
