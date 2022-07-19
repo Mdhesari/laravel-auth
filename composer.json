@@ -67,10 +67,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "LaravelAuth\\LaravelAuth\\LaravelAuthServiceProvider"
+                "Mdhesari\\LaravelAuth\\LaravelAuthServiceProvider"
             ],
             "aliases": {
-                "LaravelAuth": "LaravelAuth\\LaravelAuth\\Facades\\LaravelAuth"
+                "LaravelAuth": "Mdhesari\\LaravelAuth\\Facades\\LaravelAuth"
             }
         }
     },
