@@ -1,6 +1,6 @@
 <?php
 
-namespace LaravelAuth\LaravelAuth;
+namespace Mdhesari\LaravelAuth;
 
 class LaravelAuth
 {

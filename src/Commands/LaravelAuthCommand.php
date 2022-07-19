@@ -8,7 +8,7 @@ class LaravelAuthCommand extends Command
 {
     public $signature = 'laravel-auth';
 
-    public $description = 'My command';
+    public $description = 'Setup Laravel Auth';
 
     public function handle(): int
     {

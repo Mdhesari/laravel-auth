@@ -1,6 +1,6 @@
 <?php
 
-namespace LaravelAuth\LaravelAuth;
+namespace Mdhesari\LaravelAuth;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
@@ -17,9 +17,10 @@ class LaravelAuthServiceProvider extends PackageServiceProvider
          */
         $package
             ->name('laravel-auth')
-            ->hasConfigFile()
-            ->hasViews()
-            ->hasMigration('create_laravel-auth_table')
+            ->hasConfigFile('laravel-auth')
+            ->hasRoute('api')
+            ->hasMigration('2014_10_12_000000_create_users_table')
+            ->runsMigrations(true)
             ->hasCommand(LaravelAuthCommand::class);
     }
 }

@@ -1,19 +1,22 @@
 <?php
 
-namespace LaravelAuth\LaravelAuth\Tests;
+namespace Mdhesari\LaravelAuth\Tests;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Orchestra\Testbench\TestCase as Orchestra;
-use LaravelAuth\LaravelAuth\LaravelAuthServiceProvider;
+use Mdhesari\LaravelAuth\LaravelAuthServiceProvider;
 
 class TestCase extends Orchestra
 {
+    use DatabaseTransactions;
+
     protected function setUp(): void
     {
         parent::setUp();
 
         Factory::guessFactoryNamesUsing(
-            fn (string $modelName) => 'LaravelAuth\\LaravelAuth\\Database\\Factories\\'.class_basename($modelName).'Factory'
+            fn(string $modelName) => 'LaravelAuth\\LaravelAuth\\Database\\Factories\\'.class_basename($modelName).'Factory'
         );
     }
 
@@ -28,9 +31,7 @@ class TestCase extends Orchestra
     {
         config()->set('database.default', 'testing');
 
-        /*
-        $migration = include __DIR__.'/../database/migrations/create_laravel-auth_table.php.stub';
+        $migration = include __DIR__.'/../database/migrations/create_auth_table.php.stub';
         $migration->up();
-        */
     }
 }
