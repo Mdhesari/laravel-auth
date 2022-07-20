@@ -2,6 +2,7 @@
 
 namespace Mdhesari\LaravelAuth;
 
+use Mdhesari\LaravelAuth\Commands\CreateNewToken;
 use Mdhesari\LaravelAuth\Commands\LaravelAuthCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
@@ -19,8 +20,11 @@ class LaravelAuthServiceProvider extends PackageServiceProvider
             ->name('laravel-auth')
             ->hasConfigFile('laravel-auth')
             ->hasRoute('api')
-            ->hasMigration('2014_10_12_000000_create_users_table')
+            ->hasMigration('create_users_table')
             ->runsMigrations(true)
-            ->hasCommand(LaravelAuthCommand::class);
+            ->hasCommands([
+                LaravelAuthCommand::class,
+                CreateNewToken::class,
+            ]);
     }
 }
